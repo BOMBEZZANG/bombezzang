@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>풍성랭킹</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			height: 100vh;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.title {
+			font-size: 40pt;
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+
+		.button {
+			display: block;
+			width: 80%;
+			max-width: 300px;
+			padding: 20px;
+			border-radius: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			text-align: center;
+			text-decoration: none;
+			font-size: 16pt;
+			font-weight: bold;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			margin-bottom: 20px;
+			cursor: pointer;
+		}
+
+		.button-group {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+			margin-top: 20px;
+		}
+
+		@media (min-width: 992px) {
+			.title {
+				font-size: 60pt;
+			}
+		}
+
+		.img-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+
+		.img-container img {
+			max-width: 100%;
+			height: auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h1 class="title">풍성랭킹</h1>
+		</div>
+		<div class="img-container">
+			<img src="http://nung-meaw.com/wp-content/uploads/2023/03/photographer-g01451e765_1280-1024x533.png" alt="Photographer">
+		</div>
+		<div class="button-group">
+      		<form action="{% url 'process_ranking' %}" method="post">
+				{% csrf_token %}
+        	<button type="submit" class="button">풍성랭킹확인</button>
+      		</form>
+			<a href="#" class="button">탈모단계확인</a>
+			<a href="#" class="button">미래탈모보기</a>
+		</div>
+	</div>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const capturedImage = localStorage.getItem("capturedImage");
+    if (capturedImage) {
+      const imgContainer = document.querySelector(".img-container");
+      imgContainer.innerHTML = `<img src="${capturedImage}" alt="Captured Image">`;
+      localStorage.removeItem("capturedImage");
+    }
+  });
+
+</script>
+
+</body>
+</html>
+
+
