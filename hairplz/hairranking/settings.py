@@ -14,7 +14,9 @@ SECRET_KEY = 'django-insecure-b8npi^cwv&ea&qwlt7r7oqenaohz0lg^x#rug-hgaads-o$+vz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".ap-northeast-2.compute.amazonaws.com"
+]
 
 
 # Application definition
@@ -24,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django_filters',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles']
 
@@ -43,7 +44,7 @@ ROOT_URLCONF = 'hairranking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/jongminkim/Desktop/project/hariranking/hairranking/hairranking/templates'],
+        'DIRS': ['/home/ubuntu/project/bombezzang/hairplz/hairranking/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
